@@ -2,7 +2,6 @@ package com.loonch.jainja.controller;
 
 import com.loonch.jainja.model.Property;
 import com.loonch.jainja.service.PropertyService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +32,11 @@ public class PropertyController {
     public ResponseEntity deleteProperty(@PathVariable String id) {
         propertyService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/host/{id}")
+    public ResponseEntity<List<Property>> getPropertiesByHostId(@PathVariable String id) {
+        return ResponseEntity.ok(propertyService.getPropertiesByHostId(id));
     }
 
 }

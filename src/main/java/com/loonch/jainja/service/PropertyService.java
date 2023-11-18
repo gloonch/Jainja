@@ -27,4 +27,10 @@ public class PropertyService {
     public void delete(String id) {
         propertyRepository.deleteById(id);
     }
+
+    public List<Property> getPropertiesByHostId(String id) {
+        List<Property> properties = propertyRepository.getPropertiesByHostId(id);
+        return properties;
+    }
+
 }
